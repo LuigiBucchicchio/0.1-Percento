@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Probabilità{
 public long CasiFav=0;
 public long CasiTot=0;
@@ -14,9 +16,9 @@ public String getProb(){
 	return ""+(double)CasiFav*100/CasiTot+"%, ovvero "+CasiFav+"/"+CasiTot;
 }
 public boolean iterOnProb(){
-	int i=(int)(Math.random()*(CasiTot-1)); // 0...N 4
-	i++;
-	if(i<=CasiFav&&i>=1) // i (1...5) <= 1
+	Random r= new Random();
+	int x=r.nextInt((int)(CasiTot));
+	if(x<=(((int)CasiFav)-1)) 
 		return true;
 	return false;
 }
