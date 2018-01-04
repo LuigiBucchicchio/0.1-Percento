@@ -414,6 +414,16 @@ public class Game {
 								+ "\nEssa consiste nel dover premere solo Invio, ma non può essere disattivata senza riavvio."
 								+ "\nVelocità di "+stringa+" è al massimo!");
 					}
+					if(volte>=750){
+						if(!rush&&!ancora){
+							do{
+								System.out.println("RUSH MODE? (si/no)");
+								risposta=inputScanner.nextLine();
+							}while(!risposta.equals("si")&&!risposta.equals("no"));
+							if(risposta.equals("si"))
+								rush=true;
+						}
+					}
 					if(volte>=325&&!rush){
 						do{
 							System.out.println("Riprovare? (si/no) oppure (s/n)");
@@ -423,17 +433,8 @@ public class Game {
 						if(risposta.equals("si")||risposta.equals("s"))
 							ancora=true;
 						else ancora=false;
-					}else if(volte>=750){
-						if(!rush&&!ancora){
-							do{
-								System.out.println("RUSH MODE? (si/no)");
-								risposta=inputScanner.nextLine();
-							}while(!risposta.equals("si")&&!risposta.equals("no"));
-							if(risposta.equals("si"))
-								rush=true;
-						}
-
-					}else{
+					}
+					if(volte<325&&volte>=10){
 						do{
 							System.out.println("Riprovare? (si/no)");
 							risposta=inputScanner.nextLine();
@@ -446,7 +447,7 @@ public class Game {
 
 					if(rush){
 						System.out.println("RUSH MODE. Premi invio per continuare...");
-						inputScanner.next();
+						inputScanner.nextLine();
 						ancora=true;
 					}
 
